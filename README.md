@@ -75,7 +75,7 @@ In our case, we have:
 | `api/vote`                | POST        | Allows to vote for a spicific menu.                                                                                 |
 | `api/vote`                | GET         | Allows to get results of today's votes.                                                                             |
 
-## Use
+## Usage
 
 We can test the API using [curl](https://curl.haxx.se/) or [httpie](https://github.com/jakubroztocil/httpie#installation), or we can use [Postman](https://www.postman.com/)
 
