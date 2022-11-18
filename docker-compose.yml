@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:alpine
+    restart: unless-stopped
+    command: psql -U test -c 'create database inforce_test'
+    environment:
+      POSTGRES_DB: "test"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "password"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+      TZ: "Europe/Kiev"
+    volumes:
+      - ./containers/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./containers/app:/app
+    port:
+      - "8000:8000"
