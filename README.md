@@ -72,8 +72,8 @@ In our case, we have:
 | `api/menu/`               | GET         | Allows to get today's menus. Employees can see all menus available today. Restaurants can only see their own menus. |
 | `api/menu/:id`            | GET         | Allows to get menu with a specific id.                                                                              |
 | `api/menu/:id`            | DELETE      | Allows to delete menu with a specific id.                                                                           |
-| `api/vote`                | POST        | Allows to vote for a spicific menu.                                                                                 |
-| `api/vote`                | GET         | Allows to get results of today's votes.                                                                             |
+| `api/vote/`               | POST        | Allows to vote for a spicific menu.                                                                                 |
+| `api/vote/`               | GET         | Allows to get results of today's votes.                                                                             |
 
 ## Usage
 
@@ -98,7 +98,7 @@ To create an employee account we can use `api/auth/employee/` endpoint. Method `
 }
 ```
 
-If you want to add menu you need to login as restaurant. To do that you need to acces `api/auth/login`, Method `POST`.
+If you want to add menu you need to login as restaurant. To do that you need to acces `api/auth/login/`, Method `POST`.
 
 ```json
 {
@@ -147,7 +147,7 @@ To add a menu you need access `api/menu/`. Method `POST`.
 - `alcohol`
 
 To vote for the menu you need to be logged in as Employee.
-Use `api/vote`. Method `POST`.
+Use `api/vote/`. Method `POST`.
 
 ```json
 {
@@ -157,7 +157,7 @@ Use `api/vote`. Method `POST`.
 
 `menu` is menu_id value. Menu id you can find in `api/menu/`. Method `GET`. **You can vote only once a day!**
 
-To check the result of the vote you can with `api/vote`. Method `GET`.
+To check the result of the vote you can with `api/vote/`. Method `GET`.
 
 ## Versioning
 
