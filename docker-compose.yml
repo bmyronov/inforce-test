@@ -23,5 +23,5 @@ services:
     restart: unless-stopped
     volumes:
       - ./containers/app:/app
-    port:
+    ports:
       - "8000:8000"
