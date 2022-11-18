@@ -111,7 +111,7 @@ To add a menu you need access `api/menu/`. Method `POST`.
 
 ```json
 {
-    "name":"Pizza Pizza Menu", 
+    "name":"Pizza Hub Menu", 
     "meal": [
     {
         "name": "Chicken Soup",
