@@ -1,27 +1,28 @@
 version: "3"
 
 services:
-  postgres:
+  app:
+    build: .
+    container_name: app
+    command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
     container_name: postgres
     image: postgres:alpine
     restart: unless-stopped
-    command: psql -U test -c 'create database inforce_test'
     environment:
+      POSTGRES_DB: "your_db"
       POSTGRES_USER: "your_db_user"
-      POSTGRES_PASSWORD: "your_password"
+      POSTGRES_PASSWORD: "your_db_password"
       PGDATA: "/var/lib/postgresql/data/pgdata"
       TZ: "Europe/Kiev"
     volumes:
-      - ./containers/data:/var/lib/postgresql/data
+      - ./db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
-  app:
-    build: .
-    container_name: django_api
-    command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000
-    restart: unless-stopped
-    volumes:
-      - ./containers/app:/app
-    ports:
-      - "8000:8000"
