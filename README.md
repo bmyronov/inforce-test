@@ -25,7 +25,7 @@ Then create `.env` file. **Don't forget to change the fields bellow**
 ```
 SECRET_KEY='your_sercret_key'
 DB_ENGINE=django.db.backends.postgresql_psycopg2
-DB_NAME=your_db_name # must be the same as in docker-compose.yml
+DB_NAME=your_db_name
 DB_USER=your_db_user
 DB_PASSWORD=your_password
 DB_HOST=localhost
@@ -49,6 +49,7 @@ After that you need to build and start our docker containers.
 
 ```
 docker compose up -d
+docker exec -it postgres createdb -U your_db_user your_db_name
 ```
 
 ## Structure
