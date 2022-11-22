@@ -5,6 +5,7 @@ Simple API to vote for the menu before leaving for lunch.
 - Restaurants can create account, login and add their menu.
 - Restaurants can see only their own menus.
 - Employees can create account, login and add vote for a menu.
+- Employees can vote only once a day.
 
 ## Requirements
 
