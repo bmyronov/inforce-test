@@ -49,8 +49,10 @@ services:
 After that you need to build and start our docker containers.
 
 ```
-docker compose up -d
-docker exec -it postgres createdb -U your_db_user your_db_name
+docker compose up -d 
+docker ps # if you don't see app container, run the commands below
+docker stop postgres
+docker compose up
 ```
 
 ## Structure
